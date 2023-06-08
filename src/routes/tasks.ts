@@ -19,4 +19,13 @@ router.get('/', (req: Request, res: Response) => {
     res.json(tasks)
 })
 
+router.get('/', (req: Request, res: Response) => {
+    const task = tasks.find(t => t.id === parseInt(req.params.id))
+    if (!task) {
+        res.status(404).send('Task not found')
+    } else {
+        res.json(task)
+    }
+})
+
 export default router
