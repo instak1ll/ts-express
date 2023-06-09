@@ -42,4 +42,14 @@ router.put('/', (req: Request, res: Response) => {
     }
 })
 
+router.delete('/', (req: Request, res: Response) => {
+    const index = tasks.findIndex(t => t.id === parseInt(req.params.id))
+    if (index === -1) {
+        res.status(404).send('Task not found')
+    } else {
+        tasks.splice(index, 1)
+        res.status(204).send()
+    }
+})
+
 export default router
