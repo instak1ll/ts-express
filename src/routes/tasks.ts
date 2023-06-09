@@ -1,7 +1,5 @@
 import { Router, Request, Response } from 'express'
 import { Task } from '../models/task'
-import { request } from 'http'
-import { parse } from 'path'
 
 const router = Router()
 let tasks: Task[] = []
